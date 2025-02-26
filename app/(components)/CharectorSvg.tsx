@@ -4,7 +4,7 @@ const CharectorSvg = () => {
     const [eyePosition, setEyePosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
-        const handleMouseMove = (event: any) => {
+        const handleMouseMove = (event: MouseEvent) => {
             const { clientX, clientY } = event;
             const centerX = window.innerWidth / 2;
             const centerY = window.innerHeight / 2;
