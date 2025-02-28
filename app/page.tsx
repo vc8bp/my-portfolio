@@ -7,18 +7,19 @@ import Work from "./(components)/sections/Work/Work";
 import Contect from "./(components)/sections/Contect";
 import Footer from "./(components)/Footer";
 import CustomCursor from "./(components)/Cursor";
+import OtherProjects from "./(components)/sections/OtherProjects";
+import GradientBlob from "./GradiantBlob";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Hero/>
       <About/>
       <Experience/>
       <Work/>
+      <OtherProjects/>
       <Contect/>
-      <Footer/>
-      <CustomCursor/>
-    </div>
+    </>
   );
 }
 

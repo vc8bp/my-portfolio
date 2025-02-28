@@ -2,7 +2,7 @@ import { FaGithub, FaInstagram, FaTwitter, FaLinkedin, FaCodepen } from 'react-i
 
 const Footer = () => {
   return (
-    <footer className="bg-background container  mx-auto py-10">
+    <footer className=" container  mx-auto py-10">
         <div className='fixed bottom-0 left-[5%]'>
           <div className="flex text-muted text-xl flex-col  gap-3">
             <a href="https://github.com/vc8bp/"><FaGithub /></a>

@@ -1,0 +1,69 @@
+[
+    {
+      "slug": "Cosmic-RMS",
+      "title": "Cosmic RMS",
+      "description": "A comprehensive trading platform enabling management of Net Positions, Market Watch, Order Logs, and trading strategies.",
+      "githubUrl": "https://github.com/dummy",
+      "liveUrl": "https://dummyproject.com",
+      "videoUrl": "/project/cosmic/cosmicrec.mp4",
+      "images": [
+        { "url": "/project/cosmic/image.png", "alt": "Dashboard Overview" },
+        { "url": "/project/cosmic/image2.png", "alt": "Market Watch and Net Positions" }
+      ],
+      "technologies": ["React", "Redux", "Ag Grid", "Chart.js", "ECharts", "Websockets", "Python", "SCSS"],
+      "content": [
+        {
+          "title": "Overview",
+          "descriptions": [
+            "Developed a Risk Management System for HFT.",
+            "Provides real-time data streams for effective trading decisions.",
+            "Enables comprehensive management of net positions, market watch, and order logs."
+          ]
+        },
+        {
+          "title": "Features",
+          "descriptions": [
+            "Customizable dashboards with real-time analytics.",
+            "Interactive tables and dynamic data visualizations.",
+            "Real-time graphs including time series, line charts, and heatmaps.",
+            "Dynamic PDF report generation for trading insights.",
+            "Role-based UI rendering with multiple user roles."
+          ]
+        }
+      ]
+    },
+    {
+        "slug": "Quent-Quest",
+        "title": "Quent Quest",
+        "description": "A professional coding assessment platform with real-time tracking, secure coding environments, and an intuitive admin dashboard.",
+        "githubUrl": "https://github.com/dummy",
+        "liveUrl": "https://dummyproject.com",
+        "videoUrl": "/project/quentquest/demo.mp4",
+        "images": [
+          { "url": "/project/quentquest/image1.png", "alt": "Coding Environment" },
+          { "url": "/project/quentquest/image2.png", "alt": "Admin Dashboard for Test Management" }
+        ],
+        "technologies": ["Docker", "Node.js", "React", "Redux", "WebSockets", "PostgreSQL", "Python"],
+        "content": [
+          {
+            "title": "Overview",
+            "descriptions": [
+              "Developed a professional coding assessment platform with advanced monitoring features.",
+              "Provides real-time user activity tracking to monitor progress and interactions during assessments.",
+              "Ensures security and isolation using Docker containers for a robust coding environment."
+            ]
+          },
+          {
+            "title": "Features",
+            "descriptions": [
+              "Real-time user activity tracking for monitoring candidate performance.",
+              "Secure, containerized coding environments using Docker.",
+              "Post-assessment strategy testing for evaluating and improving solutions.",
+              "Admin dashboard for seamless test creation, management, and monitoring.",
+              "Role-based access control for candidates and administrators."
+            ]
+          }
+        ]
+      }
+]
+  

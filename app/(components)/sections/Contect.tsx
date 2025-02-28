@@ -2,7 +2,7 @@ import React from 'react';
 
 function Contact() {
     return (
-        <section className="bg-background text-foreground py-20 px-10 md:px-20 text-center h-screen flex flex-col items-center justify-center" id="contact">
+        <section className=" text-foreground py-20 px-10 md:px-20 text-center h-screen flex flex-col items-center justify-center" id="contact">
             <p className='hover:text-primary transition-color duration-300 text-3xl font-semibold'>
                 <span className='text-primary mr-1 font-mono ' >04. </span>
                 What's Next?

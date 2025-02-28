@@ -3,7 +3,7 @@ import CharectorSvg from '../CharectorSvg';
 
 const About = () => {
     return (
-        <section className="bg-background text-foreground  px-10 md:px-20  container m-auto max-w-[1000px] h-screen flex items-center " id='about'>
+        <section className=" text-foreground  px-10 md:px-20  container m-auto max-w-[1000px] h-screen flex items-center " id='about'>
             <div className='flex flex-col md:flex-row items-center md:items-start w-full' >
                 <div className="md:w-2/3">
                     <p className='hover:text-primary transition-color duration-300 text-3xl font-semibold'>

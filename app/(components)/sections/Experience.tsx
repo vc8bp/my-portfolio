@@ -45,7 +45,7 @@ const experiences = [
 
 const Experience = () => {
     return (
-        <section className="bg-background text-foreground py-20 px-10 md:px-20 max-w-[1000px] mx-auto group pt-28" id='experience'>
+        <section className=" text-foreground py-20 px-10 md:px-20 max-w-[1000px] mx-auto group pt-28" id='experience'>
             <p className='hover:text-primary transition-color duration-300 text-3xl font-semibold'>
                 <span className='text-primary mr-1 font-mono ' >02. </span>
                 Where I've Worked

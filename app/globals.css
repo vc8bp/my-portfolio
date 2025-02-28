@@ -13,11 +13,13 @@
   scroll-behavior: smooth;
   --navy: #112240;
 }
-
+nav {
+  z-index: 9999 !important;
+}
 
 body {
   color: var(--color-foreground);
-  background: var(--color-background);
+  /* background: var(--color-background); */
   
 }
 
