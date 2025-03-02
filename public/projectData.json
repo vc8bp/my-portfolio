@@ -1,69 +1,183 @@
 [
-    {
-      "slug": "Cosmic-RMS",
-      "title": "Cosmic RMS",
-      "description": "A comprehensive trading platform enabling management of Net Positions, Market Watch, Order Logs, and trading strategies.",
-      "githubUrl": "https://github.com/dummy",
-      "liveUrl": "https://dummyproject.com",
-      "videoUrl": "/project/cosmic/cosmicrec.mp4",
-      "images": [
-        { "url": "/project/cosmic/image.png", "alt": "Dashboard Overview" },
-        { "url": "/project/cosmic/image2.png", "alt": "Market Watch and Net Positions" }
-      ],
-      "technologies": ["React", "Redux", "Ag Grid", "Chart.js", "ECharts", "Websockets", "Python", "SCSS"],
-      "content": [
-        {
-          "title": "Overview",
-          "descriptions": [
-            "Developed a Risk Management System for HFT.",
-            "Provides real-time data streams for effective trading decisions.",
-            "Enables comprehensive management of net positions, market watch, and order logs."
-          ]
-        },
-        {
-          "title": "Features",
-          "descriptions": [
-            "Customizable dashboards with real-time analytics.",
-            "Interactive tables and dynamic data visualizations.",
-            "Real-time graphs including time series, line charts, and heatmaps.",
-            "Dynamic PDF report generation for trading insights.",
-            "Role-based UI rendering with multiple user roles."
-          ]
-        }
-      ]
-    },
-    {
-        "slug": "Quent-Quest",
-        "title": "Quent Quest",
-        "description": "A professional coding assessment platform with real-time tracking, secure coding environments, and an intuitive admin dashboard.",
-        "githubUrl": "https://github.com/dummy",
-        "liveUrl": "https://dummyproject.com",
-        "videoUrl": "/project/quentquest/demo.mp4",
-        "images": [
-          { "url": "/project/quentquest/image1.png", "alt": "Coding Environment" },
-          { "url": "/project/quentquest/image2.png", "alt": "Admin Dashboard for Test Management" }
-        ],
-        "technologies": ["Docker", "Node.js", "React", "Redux", "WebSockets", "PostgreSQL", "Python"],
-        "content": [
-          {
-            "title": "Overview",
-            "descriptions": [
-              "Developed a professional coding assessment platform with advanced monitoring features.",
-              "Provides real-time user activity tracking to monitor progress and interactions during assessments.",
-              "Ensures security and isolation using Docker containers for a robust coding environment."
-            ]
-          },
-          {
-            "title": "Features",
-            "descriptions": [
-              "Real-time user activity tracking for monitoring candidate performance.",
-              "Secure, containerized coding environments using Docker.",
-              "Post-assessment strategy testing for evaluating and improving solutions.",
-              "Admin dashboard for seamless test creation, management, and monitoring.",
-              "Role-based access control for candidates and administrators."
-            ]
-          }
+  {
+    "slug": "Cosmic-RMS",
+    "title": "Cosmic RMS",
+    "description": "A comprehensive trading platform enabling management of Net Positions, Market Watch, Order Logs, and trading strategies.",
+    "githubUrl": "https://github.com/dummy",
+    "liveUrl": "https://dummyproject.com",
+    "videoUrl": "/project/cosmic/cosmicrec.mp4",
+    "images": [
+      {
+        "url": "/project/cosmic/image.png",
+        "alt": "Dashboard Overview"
+      },
+      {
+        "url": "/project/cosmic/image2.png",
+        "alt": "Market Watch and Net Positions"
+      }
+    ],
+    "technologies": [
+      "React",
+      "Redux",
+      "Ag Grid",
+      "Chart.js",
+      "ECharts",
+      "Websockets",
+      "Python",
+      "SCSS"
+    ],
+    "content": [
+      {
+        "title": "Overview",
+        "descriptions": [
+          "Developed a Risk Management System for HFT.",
+          "Provides real-time data streams for effective trading decisions.",
+          "Enables comprehensive management of net positions, market watch, and order logs."
+        ]
+      },
+      {
+        "title": "Features",
+        "descriptions": [
+          "Customizable dashboards with real-time analytics.",
+          "Interactive tables and dynamic data visualizations.",
+          "Real-time graphs including time series, line charts, and heatmaps.",
+          "Dynamic PDF report generation for trading insights.",
+          "Role-based UI rendering with multiple user roles."
         ]
       }
-]
+    ]
+  },
+  {
+    "slug": "Quent-Quest",
+    "title": "Quent Quest",
+    "description": "A professional coding assessment platform with real-time tracking, secure coding environments, and an intuitive admin dashboard.",
+    "githubUrl": "https://github.com/dummy",
+    "liveUrl": "https://dummyproject.com",
+    "videoUrl": "/project/hrank/demo.mp4",
+    "images": [
+      {
+        "url": "/project/quentquest/image1.png",
+        "alt": "Coding Environment"
+      },
+      {
+        "url": "/project/quentquest/image2.png",
+        "alt": "Admin Dashboard for Test Management"
+      }
+    ],
+    "technologies": [
+      "Docker",
+      "Node.js",
+      "React",
+      "Redux",
+      "WebSockets",
+      "PostgreSQL",
+      "Python"
+    ],
+    "content": [
+      {
+        "title": "Overview",
+        "descriptions": [
+          "Developed a professional coding assessment platform with advanced monitoring features.",
+          "Provides real-time user activity tracking to monitor progress and interactions during assessments.",
+          "Ensures security and isolation using Docker containers for a robust coding environment."
+        ]
+      },
+      {
+        "title": "Features",
+        "descriptions": [
+          "Real-time user activity tracking for monitoring candidate performance.",
+          "Secure, containerized coding environments using Docker.",
+          "Post-assessment strategy testing for evaluating and improving solutions.",
+          "Admin dashboard for seamless test creation, management, and monitoring.",
+          "Role-based access control for candidates and administrators."
+        ]
+      }
+    ]
+  },
+
+  {
+    "slug": "Trading-Project",
+    "title": "Trading Project",
+    "description": "A high-performance trading system built in C++ utilizing shared memory, inter-process communication, dynamic linking, and real-time data processing.",
+    "githubUrl": "https://github.com/vc8bp/Trading-Project/tree/sharedmem",
+    "images": [{
+      "url": "/project/hft/hftImg.jpeg",
+      "alt": "HFT Image"
+    }],
+    "technologies": [
+      "C++",
+      "Shared Memory",
+      "Inter-Process Communication (IPC)",
+      "Dynamic Linking (Shared Libraries)",
+      "POSIX Signals",
+      "Boost",
+      "Multithreading",
+      "Asynchronous Processing",
+      "Low-latency Data Handling",
+      "Modular Architecture"
+    ],
+
+    "content": [
+      {
+        "title": "Overview",
+        "descriptions": [
+          "Developed a fully modular, low-latency trading system using modern C++.",
+          "Designed a multi-process architecture with IPC and shared memory for efficient real-time communication.",
+          "Implemented dynamic strategy loading using shared libraries to enable live updates without restarting the system.",
+          "Leveraged POSIX signals for inter-process synchronization and lifecycle management."
+        ]
+      },
+      {
+        "title": "Features",
+        "descriptions": [
+          "Shared Memory-based Market Data Feed: High-speed real-time data exchange using Boost.Interprocess, eliminating traditional socket bottlenecks.",
+          "Order Management System (OMS): Processes trade orders with minimal latency and updates the order book in real-time using shared memory.",
+          "Dynamic Strategy Loading: Trading strategies are implemented as shared objects (`.so`) and can be dynamically linked at runtime, allowing new strategies to be loaded without stopping the system.",
+          "Efficient IPC & Synchronization: Processes communicate via shared memory with mutex-based synchronization, ensuring safe concurrent access to critical data.",
+          "Asynchronous Event Handling: Boost.Asio is used to implement non-blocking event-driven processing for trading signals, data ingestion, and execution.",
+          "Multi-threaded Processing: Each core module (Feed, Strategy, OMS) runs its own worker threads, ensuring smooth parallel execution without blocking critical operations.",
+          "Low-latency Execution Pipeline: Optimized memory management and lock-free queues where applicable to reduce processing overhead and ensure high-speed trade execution.",
+          "Real-time Performance Monitoring: Integrated logging and benchmarking tools to measure execution times, memory usage, and latency bottlenecks.",
+          "Process Management with Signals: Uses UNIX signals (`SIGINT`, `SIGTERM`) to handle system shutdown, error recovery, and safe cleanup of shared memory."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "chess-game",
+    "title": "Chess Game",
+    "description": "A chess game built from scratch in React without using any external libraries for rendering or logic, implementing all game mechanics manually.",
+    "githubUrl": "https://github.com/vc8bp/chess",
+    "liveUrl": "",
+    "videoUrl": "",
+    "images": ["/project/chess/moves.png", "/project/chess/start.png","/project/chess/threat.png","/project/chess/board.png"],
+    "technologies": [
+      "React",
+      "JavaScript",
+      "CSS",
+      "HTML"
+    ],
+    "content": [
+      {
+        "title": "Overview",
+        "descriptions": [
+          "Built a fully functional chess game using React without relying on any third-party libraries for board rendering or game logic.",
+          "Implemented chess rules and mechanics from scratch, including piece movements, checkmate detection, castling, and en passant.",
+          "Designed an interactive and responsive chessboard with custom logic for valid move detection and piece handling."
+        ]
+      },
+      {
+        "title": "Features",
+        "descriptions": [
+          "Custom Chess Logic: Developed all chess rules manually, handling piece movement, check/checkmate detection, and special moves like castling and en passant.",
+          "Drag-and-Drop Piece Movement: Created a custom piece movement system without using third-party drag-and-drop libraries.",
+          "Manual Board Rendering: Built the chessboard and pieces from scratch using HTML, CSS, and React components without any external UI frameworks.",
+          "*Move Validation & Turn Management: Ensured only legal moves are allowed, switching turns dynamically between white and black players.",
+          "Undo/Redo Move System: Implemented a history-based move tracking system to allow undoing and redoing moves.",
+          "Game State Persistence: Stored game progress in local storage to allow resuming unfinished games."
+        ]
+      }
+    ]
+  }
   
+]

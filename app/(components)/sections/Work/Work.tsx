@@ -101,9 +101,9 @@ const Work = () => {
   return (
     <section className=" text-foreground py-20 px-10 md:px-20 container max-w-[1200px] mx-auto pt-28" id="work">
       <p className='hover:text-primary transition-color duration-300 text-3xl font-semibold'>
-        <span className='text-primary mr-1 font-mono ' >03. </span>
-        Some Things I've Built
-      </p>
+            <span className='text-primary mr-1 font-mono ' >03. </span>
+            {"Some Things I've Built"}
+        </p>
       <div className={`mt-6 space-y-16`}>
         {projects.map((project, index) => (
           <div key={index} className={`flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 gap-8 relative my-auto ${style.cards}`}>
