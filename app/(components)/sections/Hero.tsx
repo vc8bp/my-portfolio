@@ -9,8 +9,8 @@ const Hero = () => {
         I build scalable web solutions.
       </h2>
       <p className="text-muted max-w-lg mt-4 text-sm md:text-base">
-        I'm a React developer with expertise in DevOps, backend development with Python, and leading teams. 
-        Currently, I'm exploring C++ for high-frequency trading and enhancing system performance.
+        {`I'm a React developer with expertise in DevOps, backend development with Python, and leading teams. 
+        Currently, I'm exploring C++ for high-frequency trading and enhancing system performance.`}
       </p>
       <a
         href="#work"

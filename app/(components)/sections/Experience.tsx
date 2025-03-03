@@ -48,14 +48,15 @@ const Experience = () => {
         <section className=" text-foreground py-20 px-10 md:px-20 max-w-[1000px] mx-auto group pt-28" id='experience'>
             <p className='hover:text-primary transition-color duration-300 text-3xl font-semibold'>
                 <span className='text-primary mr-1 font-mono ' >02. </span>
-                Where I've Worked
+                {`Where I've Worked`}
             </p>
             <div className="mt-3 space-y-10 " >
                 {experiences.map((exp, index) => (
                     <div key={index} className='p-4 rounded-lg flex gap-8 group-hover:opacity-50 hover:!opacity-100 transition-all duration-300 border border-white/0
                     hover:bg-[#172445]/30 hover:backdrop-blur-3xl  hover:border-white/20 
+                    md:flex-row flex-col
                     '> 
-                        <p className="text-muted text-sm mt-1 w-[20%]">{exp.date}</p>
+                        <p className="text-muted text-sm mt-1 min-w-[20%]">{exp.date}</p>
                         <div className='w-[80%]'>
                             <h3 className="text-l font-semibold ">{exp.role} · {exp.company}</h3>
                             <ul className="mt-4 text-muted text-sm space-y-2">

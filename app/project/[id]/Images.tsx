@@ -1,5 +1,4 @@
 "use client"
-import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { LuPlay } from 'react-icons/lu'
 
@@ -8,7 +7,7 @@ interface imgType {
     alt: string
 }
 
-function Images({ images, videoUrl }: { images: imgType[], videoUrl: string }) {
+function Images({ images, videoUrl }: { images: imgType[], videoUrl?: string }) {
     const [activeImage, setActiveImage] = useState(images[0]?.url || "")
     const [isVideoPlaying, setIsVideoPlaying] = useState(false)
 

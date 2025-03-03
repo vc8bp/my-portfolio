@@ -1,0 +1,118 @@
+[
+    {
+        "title": "Production-ready eCommerce",
+        "description": "A full-stack eCommerce platform with a Node.js (Express) + MongoDB backend, a React frontend for shoppers, and a React admin dashboard for store management. It supports user authentication, product browsing, shopping cart & checkout, and includes an admin interface for inventory and order management.",
+        "image": "/placeholder-image.png",
+        "tags": [
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "React",
+            "Material-UI",
+            "Redux"
+        ],
+        "link": {
+            "live": "https://satnamcreation.netlify.app",
+            "github": "https://github.com/vc8bp/shop-api-backend"
+        },
+        "year": "2023",
+        "featured": true,
+        "madeAt": "Personal Project"
+    },
+    {
+        "title": "HRMS",
+        "description": "A Human Resource Management System web application to streamline HR processes like employee data management and leave tracking. It provides an admin interface for HR managers to manage employee records and leave requests, and an employee portal to view information and apply for leaves. Built using the MERN stack for a responsive, single-page experience.",
+        "image": "/placeholder-image.png",
+        "tags": [
+            "MongoDB",
+            "Express.js",
+            "React",
+            "Node.js"
+        ],
+        "link": {
+            "live": "",
+            "github": "https://github.com/vc8bp/hrms"
+        },
+        "year": "2023",
+        "featured": true,
+        "madeAt": "Personal Project"
+    },
+    {
+        "title": "Raycasting in JS",
+        "description": "A JavaScript project demonstrating the raycasting algorithm to simulate a 3D perspective in a 2D environment. It casts rays from a player's viewpoint in a 2D grid (like in Wolfenstein 3D) and renders a pseudo-3D scene of walls, showcasing how early 3D games used raycasting for visual effects.",
+        "image": "/placeholder-image.png",
+        "tags": [
+            "JavaScript",
+            "HTML5 Canvas",
+            "HTML/CSS"
+        ],
+        "link": {
+            "live": "https://raycastingg.netlify.app/",
+            "github": "https://github.com/vc8bp/raycasting"
+        },
+        "year": "2022",
+        "featured": true,
+        "madeAt": "Personal Project"
+    },
+
+    {
+        "title": "Ebullient Securities",
+        "description": "A corporate website for Ebullient Securities, a leading quantitative proprietary trading firm. The site showcases the company's profile, its focus on options trading and quantitative strategies, and provides contact and career information. It emphasizes Ebullient's status as one of India's premier prop trading firms and offers insight into its trading approach.",
+        "image": "/placeholder-image.png",
+        "tags": ["React", "SCSS", "Django", "Docker", "PostgreSQL", "AWS"],
+        "link": {
+            "live": "https://ebullientsecurities.com",
+            "github": ""
+        },
+        "year": "2022",
+        "featured": true,
+        "madeAt": "Ebullient Securities"
+    },
+    {
+        "title": "RJ Enterpeice - Company Landing Page",
+        "description": "A modern landing page developed for the company RJ Enterpeice. It is built with Next.js and styled with SCSS, providing a fast and responsive single-page site to showcase RJ Enterpeice's business information and services. The landing page highlights the company's offerings and includes contact information.",
+        "tags": [
+            "Next.js",
+            "React",
+            "SCSS"
+        ],
+        "link": {
+            "live": "https://www.rjenterpriseinfo.com/",
+            "github": ""
+        },
+        "year": "2023",
+        "featured": true,
+        "madeAt": "RJ Enterprise"
+    },
+    {
+        "title": "Spectra Global",
+        "description": "The official website of Spectra Global Ltd., an award-winning forex and CFD trading platform. The site provides information on trading services (Forex, Indices, Stocks, Futures) offered via the MetaTrader 5 platform and allows users to open demo accounts. It highlights Spectra Global's features and services as a leading broker, including its range of trading instruments and secure platform.",
+        "image": "/placeholder-image.png",
+        "tags": [ "React", "SCSS" ],
+        "link": {
+            "live": "https://spectragloballtd.com",
+            "github": ""
+        },
+        "year": "2023",
+        "featured": true,
+        "madeAt": "Spectra Global Ltd"
+    },
+    {
+        "title": "Multi-Agent eCommerce Project",
+        "description": "A MERN stack multi-agent shopping website that enables multiple sellers to upload and manage their products, while normal users can browse products, add items to a cart, and make purchases. The site features an intuitive interface and intelligent agents that assist users in finding the best products.",
+        "image": "/placeholder-image.png",
+        "tags": [
+            "MongoDB",
+            "Express.js",
+            "React",
+            "Node.js"
+        ],
+        "link": {
+            "live": "",
+            "github": "https://github.com/vc8bp/multi-agent-shoping-website"
+        },
+        "year": "2023",
+        "featured": true,
+        "madeAt": "Personal Project"
+    }
+]

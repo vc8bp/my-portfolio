@@ -1,9 +1,47 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import { LuArrowLeft, LuGithub, LuExternalLink, LuChevronRight, LuPlay } from "react-icons/lu";
+import { LuArrowLeft, LuGithub, LuExternalLink, LuChevronRight } from "react-icons/lu";
 import Images from "./Images";
 import projects from "@/public/projectData.json"
 
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const projectData = projects.find((e) => e.slug === id)
+  
+  if (!projectData) {
+    return {
+      title: "Project Not Found",
+      description: "The requested project could not be found."
+    }
+  }
+
+  const mainImage = projectData.images[0]?.url || "/og-image.jpg"
+
+  return {
+    title: `${projectData.title} | Vivek Chaturvedi Portfolio`,
+    description: projectData.description,
+    keywords: [...projectData.technologies, "Software Development", "Project", projectData.title],
+    openGraph: {
+      title: `${projectData.title} - Vivek Chaturvedi`,
+      description: projectData.description,
+      type: "article",
+      images: [
+        {
+          url: mainImage,
+          width: 1200,
+          height: 630,
+          alt: `${projectData.title} - Project by Vivek Chaturvedi`
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${projectData.title} - Vivek Chaturvedi`,
+      description: projectData.description,
+      images: [mainImage]
+    }
+  }
+}
 
 export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
@@ -20,6 +58,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
             <span>Back to projects</span>
           </Link>
           <div className="flex gap-4">
+            {projectData.companyProject && (
+              <div className="flex items-center gap-2 bg-gray-800 text-gray-300 px-3 py-1.5 rounded-md">
+                <span className="hidden sm:inline">{projectData.companyNote}</span>
+                <span className="sm:hidden">Company Project</span>
+              </div>
+            )}
             {projectData.githubUrl && (
               <Link
                 href={projectData.githubUrl}
