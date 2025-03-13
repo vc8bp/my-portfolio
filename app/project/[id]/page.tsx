@@ -14,7 +14,6 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       description: "The requested project could not be found."
     }
   }
-
   const mainImage = projectData.images[0]?.url || "/og-image.jpg"
 
   return {

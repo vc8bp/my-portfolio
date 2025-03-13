@@ -26,9 +26,11 @@ function NavBar() {
                     </Link>
                 ))}
                 <div className='hoverEffect rounded-md'>
-                    <button className="text-sm p-2 border border-buttonBorder text-primary rounded-md bg-background">
-                        Resume
-                    </button>
+                    <Link target="_blank" href='/vivek chaturvedi resume.pdf'>
+                        <button className="text-sm p-2 border border-buttonBorder text-primary rounded-md bg-background">
+                            Resume
+                        </button>
+                    </Link>
                 </div>
             </div>
 
@@ -63,10 +65,12 @@ function NavBar() {
                             {item.title}
                         </Link>
                     ))}
-                    <div className='hoverEffect rounded-md mt-4 ml-2'>
-                        <button className="text-sm p-2 border border-buttonBorder text-primary rounded-md bg-background">
-                            Resume
-                        </button>
+                    <div className='hoverEffect rounded-md'>
+                        <Link target="_blank" href='/vivek chaturvedi resume.pdf'>
+                            <button className="text-sm p-2 border border-buttonBorder text-primary rounded-md bg-background">
+                                Resume
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>
