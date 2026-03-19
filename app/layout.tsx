@@ -68,6 +68,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="google-site-verification" content="3vb7PAIymy2lb7q-rHeIelFrbOTQRl4TX_VvfPAxerc" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-B55519Z9TP"></script>
         <script
           dangerouslySetInnerHTML={{
