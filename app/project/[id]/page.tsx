@@ -1,143 +1,202 @@
-import { notFound } from "next/navigation"
-import Link from "next/link"
-import { LuArrowLeft, LuGithub, LuExternalLink, LuChevronRight } from "react-icons/lu";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { LuArrowLeft, LuGithub, LuArrowUpRight } from "react-icons/lu";
 import Images from "./Images";
-import projects from "@/public/projectData.json"
+import Readout from "@/app/(components)/Readout";
+import projects from "@/public/projectData.json";
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params
-  const projectData = projects.find((e) => e.slug === id)
-  
-  if (!projectData) {
-    return {
-      title: "Project Not Found",
-      description: "The requested project could not be found."
-    }
-  }
-  const mainImage = projectData.images[0]?.url || "/og-image.jpg"
-
-  return {
-    title: `${projectData.title} | Vivek Chaturvedi Portfolio`,
-    description: projectData.description,
-    keywords: [...projectData.technologies, "Software Development", "Project", projectData.title],
-    openGraph: {
-      title: `${projectData.title} - Vivek Chaturvedi`,
-      description: projectData.description,
-      type: "article",
-      images: [
-        {
-          url: mainImage,
-          width: 1200,
-          height: 630,
-          alt: `${projectData.title} - Project by Vivek Chaturvedi`
-        }
-      ]
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${projectData.title} - Vivek Chaturvedi`,
-      description: projectData.description,
-      images: [mainImage]
-    }
-  }
+export function generateStaticParams() {
+  return projects.map((p) => ({ id: p.slug }));
 }
 
-export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params
-  const projectData = projects.find((e) => e.slug === id)
-  if (!projectData) return notFound()
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const projectData = projects.find((e) => e.slug === id);
+
+  if (!projectData) {
+    return {
+      title: "Project not found",
+      description: "The requested project could not be found.",
+    };
+  }
+
+  return {
+    title: `${projectData.title} | Vivek Chaturvedi`,
+    description: projectData.description,
+    keywords: [...projectData.technologies, "Software Development", projectData.title],
+    alternates: { canonical: `/project/${projectData.slug}` },
+    openGraph: {
+      title: `${projectData.title} | Vivek Chaturvedi`,
+      description: projectData.description,
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title: `${projectData.title} | Vivek Chaturvedi`,
+      description: projectData.description,
+    },
+  };
+}
+
+export default async function ProjectPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const project = projects.find((e) => e.slug === id);
+  if (!project) return notFound();
+
+  const githubUrl = "githubUrl" in project ? project.githubUrl : undefined;
+  const liveUrl = "liveUrl" in project ? project.liveUrl : undefined;
+  const isProprietary = "companyProject" in project && project.companyProject;
+  const metrics = "metrics" in project ? project.metrics : undefined;
+  const metricsAsOf = "metricsAsOf" in project ? project.metricsAsOf : undefined;
 
   return (
-    // bg-gradient-to-b from-gray-950 to-gray-900
-    <div className="min-h-screen  text-gray-200 font-sans pt-[100px]"> 
-      <header className="sticky top-0 z-10 backdrop-blur-md bg-gray-950/80 border-b border-gray-800">
-        <div className="container mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-gray-300 hover:text-white transition-all group">
-            <LuArrowLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
-            <span>Back to projects</span>
-          </Link>
-          <div className="flex gap-4">
-            {projectData.companyProject && (
-              <div className="flex items-center gap-2 bg-gray-800 text-gray-300 px-3 py-1.5 rounded-md">
-                <span className="hidden sm:inline">{projectData.companyNote}</span>
-                <span className="sm:hidden">Company Project</span>
-              </div>
-            )}
-            {projectData.githubUrl && (
-              <Link
-                href={projectData.githubUrl}
-                target="_blank"
-                className="flex items-center gap-2 text-gray-300 hover:text-white transition-all px-3 py-1.5 rounded-md hover:bg-gray-800"
-              >
-                <LuGithub className="h-5 w-5" />
-                <span className="hidden sm:inline">Source</span>
-              </Link>
-            )}
-            {projectData.liveUrl && (
-              <Link
-                href={projectData.liveUrl}
-                target="_blank"
-                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white transition-all px-3 py-1.5 rounded-md"
-              >
-                <LuExternalLink className="h-5 w-5" />
-                <span className="hidden sm:inline">Live Demo</span>
-              </Link>
+    <main className="pt-[4.5rem]">
+      <div className="mx-auto w-full max-w-[1240px] px-[var(--gutter)] py-16 md:py-20">
+        <Link
+          href="/#work"
+          className="inline-flex items-center gap-2 font-mono text-xs text-dim transition-colors hover:text-signal"
+        >
+          <LuArrowLeft className="h-3.5 w-3.5" />
+          Back to work
+        </Link>
+
+        <div className="mt-10 grid gap-12 border-b border-rule pb-12 md:grid-cols-12 md:gap-16">
+          <div className="md:col-span-7">
+            <h1 className="text-[clamp(2.2rem,6vw,4rem)] font-semibold leading-[1] tracking-tightest">
+              {project.title}
+            </h1>
+            <p className="mt-6 max-w-measure leading-relaxed text-dim">
+              {project.description}
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              {liveUrl && (
+                <a
+                  href={liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-signal bg-signal px-4 py-2 text-sm font-medium text-ink transition-colors hover:bg-transparent hover:text-signal"
+                >
+                  <LuArrowUpRight className="h-4 w-4" />
+                  Open live site
+                </a>
+              )}
+              {githubUrl && (
+                <a
+                  href={githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-rule px-4 py-2 text-sm text-dim transition-colors hover:border-text hover:text-text"
+                >
+                  <LuGithub className="h-4 w-4" />
+                  View source
+                </a>
+              )}
+            </div>
+          </div>
+
+          <div className="md:col-span-4 md:col-start-9">
+            <dl>
+              {project.images.length > 0 && (
+                <Readout label="screens" value={project.images.length} />
+              )}
+              <Readout
+                label="source"
+                value={githubUrl ? "public" : "not public"}
+              />
+              {isProprietary && <Readout label="access" value="restricted" />}
+            </dl>
+
+            {metrics && metrics.length > 0 && (
+              <dl className="mt-8 border border-rule bg-panel">
+                <div className="flex items-baseline justify-between border-b border-rule px-4 py-2.5">
+                  <span className="font-mono text-[11px] text-dim">measured</span>
+                  {metricsAsOf && (
+                    <span className="font-mono text-[11px] text-dim2">
+                      {metricsAsOf}
+                    </span>
+                  )}
+                </div>
+                <div className="grid grid-cols-2">
+                  {metrics.map((m, i) => (
+                    <div
+                      key={m.label}
+                      className={`px-4 py-3 ${
+                        i % 2 === 0 ? "border-r border-rule" : ""
+                      } ${i < metrics.length - 2 ? "border-b border-rule" : ""}`}
+                    >
+                      <dd className="tnum font-mono text-lg text-text">
+                        {m.value}
+                      </dd>
+                      <dt className="mt-1 font-mono text-[11px] leading-snug text-dim2">
+                        {m.label}
+                      </dt>
+                    </div>
+                  ))}
+                </div>
+              </dl>
             )}
           </div>
         </div>
-      </header>
 
-      <main className="container mx-auto max-w-6xl px-4 py-12">
-        <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-            {projectData.title}
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl">{projectData.description}</p>
-        </div>
+        {isProprietary && (
+          <p className="mt-8 border-l border-signal py-1 pl-4 font-mono text-xs text-dim">
+            {project.companyNote}
+          </p>
+        )}
 
-        <Images images={projectData.images} videoUrl={projectData.videoUrl} />
+        {(project.images.length > 0 ||
+          ("videoUrl" in project && project.videoUrl)) && (
+          <section className="mt-12">
+            <h2 className="sr-only">Screens</h2>
+            <Images
+              images={project.images}
+              videoUrl={"videoUrl" in project ? project.videoUrl : undefined}
+            />
+          </section>
+        )}
 
-        {/* Media Section */}
-        <div className="mb-16 bg-gray-900/50 rounded-xl p-6 border border-gray-800 shadow-lg">
-          <h2 className="text-2xl font-semibold mb-6 text-white flex items-center">
-            <span className="bg-blue-600 w-1.5 h-6 rounded-full mr-3"></span>
-            Technologies Used
+        <section className="mt-16 border-t border-rule pt-10">
+          <h2 className="border-b border-rule pb-4 text-xl font-medium tracking-tightest">
+            Built with
           </h2>
-          <div className="flex flex-wrap gap-3">
-            {projectData.technologies.map((tech, index) => (
-              <span
-                key={index}
-                className="px-4 py-2 bg-gray-800 hover:bg-gray-750 text-gray-200 rounded-lg text-sm font-medium border border-gray-700 transition-colors"
-              >
+          <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+            {project.technologies.map((tech) => (
+              <li key={tech} className="font-mono text-sm text-dim">
                 {tech}
-              </span>
+              </li>
             ))}
-          </div>
-        </div>
+          </ul>
+        </section>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {projectData.content.map((section, index) => (
-            <div
-              key={index}
-              className="p-6 border border-gray-800 rounded-xl shadow-lg bg-gray-900/50 hover:bg-gray-900/70 transition-colors"
-            >
-              <h3 className="text-2xl font-semibold mb-4 text-white flex items-center">
-                <span className="bg-purple-600 w-1.5 h-6 rounded-full mr-3"></span>
+        <div className="mt-16 grid gap-12 md:grid-cols-2 md:gap-16">
+          {project.content.map((section) => (
+            <section key={section.title} className="border-t border-rule pt-10">
+              <h2 className="text-xl font-medium tracking-tightest">
                 {section.title}
-              </h3>
-              <ul className="space-y-3">
-                {section.descriptions.map((desc, i) => (
-                  <li key={i} className="flex items-start gap-2 text-gray-300">
-                    <LuChevronRight className="h-5 w-5 text-purple-400 flex-shrink-0 mt-0.5" />
-                    <span>{desc}</span>
+              </h2>
+              <ul className="mt-6 space-y-3 border-l border-rule pl-4">
+                {section.descriptions.map((desc) => (
+                  <li
+                    key={desc}
+                    className="text-sm leading-relaxed text-dim"
+                  >
+                    {desc}
                   </li>
                 ))}
               </ul>
-            </div>
+            </section>
           ))}
         </div>
-      </main>
-    </div>
-  )
+      </div>
+    </main>
+  );
 }
-

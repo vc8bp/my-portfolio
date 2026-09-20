@@ -1,10 +1,11 @@
-import React from 'react';
+import React from "react";
+import Panel from "../Panel";
 
 const experiences = [
     {
         company: "Finrise",
         role: "Software Engineer",
-        date: "2023 — PRESENT",
+        date: "2023 - PRESENT",
         responsibilities: [
             "Developed a high-performance RMS (Risk Management System) featuring real-time data and interactive dynamic graphs using React.",
             "Deployed the complete project in a Linux environment using NGINX and Jenkins for continuous integration and delivery.",
@@ -13,9 +14,9 @@ const experiences = [
         skills: ["JavaScript", "React", "C++", "Jenkins", "NGINX"]
     },
     {
-        company: "SRHFT",
+        company: "T firm",
         role: "Frontend Developer",
-        date: "2023 — 2023",
+        date: "2023 - 2023",
         responsibilities: [
             "Implemented a dynamic form builder for customizable inputs.",
             "Built real-time graphs and charts with WebSocket integration.",
@@ -29,7 +30,7 @@ const experiences = [
     {
         company: "Freelance Web Development",
         role: "Web Developer",
-        date: "2021 — 2023",
+        date: "2021 - 2023",
         responsibilities: [
             "Created modern UIs and dynamic content management systems for Ebulient Securities.",
             "Implemented real-time features and live data streams, ensuring seamless updates.",
@@ -43,41 +44,61 @@ const experiences = [
     }
 ];
 
-const Experience = () => {
-    return (
-        <section className=" text-foreground py-20 px-10 md:px-20 max-w-[1000px] mx-auto group pt-28" id='experience'>
-            <p className='hover:text-primary transition-color duration-300 text-3xl font-semibold'>
-                <span className='text-primary mr-1 font-mono ' >02. </span>
-                {`Where I've Worked`}
+export default function Experience() {
+  return (
+    <Panel
+      id="experience"
+      title="Where I've worked"
+      readout={`${experiences.length} roles   2021 - now`}
+    >
+      <div className="group mt-4">
+        {experiences.map((exp, i) => (
+          <article
+            key={exp.company}
+            data-reveal="fade"
+            data-row
+            style={{ ["--i" as string]: i }}
+            className="py-8 pl-5 transition-all duration-200 group-hover:opacity-40 group-focus-within:opacity-40 hover:!opacity-100 hover:bg-panel focus-within:!opacity-100 md:grid md:grid-cols-12 md:gap-16"
+          >
+            <p className="tnum flex items-center gap-2 font-mono text-xs text-dim md:col-span-3">
+              {exp.date.includes("PRESENT") && (
+                <span
+                  aria-label="current role"
+                  className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-signal"
+                />
+              )}
+              {exp.date}
             </p>
-            <div className="mt-3 space-y-10 " >
-                {experiences.map((exp, index) => (
-                    <div key={index} className='p-4 rounded-lg flex gap-8 group-hover:opacity-50 hover:!opacity-100 transition-all duration-300 border border-white/0
-                    hover:bg-[#172445]/30 hover:backdrop-blur-3xl  hover:border-white/20 
-                    md:flex-row flex-col
-                    '> 
-                        <p className="text-muted text-sm mt-1 min-w-[20%]">{exp.date}</p>
-                        <div className='w-[80%]'>
-                            <h3 className="text-l font-semibold ">{exp.role} · {exp.company}</h3>
-                            <ul className="mt-4 text-muted text-sm space-y-2">
-                                {exp.responsibilities.map((task, idx) => (
-                                    <li key={idx} className="flex items-start">
-                                        <span className="text-primary mr-2"></span>{task}
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className="flex flex-wrap gap-2 mt-4">
-                                {exp.skills.map((skill, idx) => (
-                                    <span key={idx} className="px-3 py-1 rounded-full text-xs text-primary bg-teal-300/10 font-medium ">{skill}</span>
-                                ))}
-                            </div>
-                        </div>
 
-                    </div>
+            <div className="mt-3 md:col-span-9 md:mt-0">
+              <h3 className="text-lg font-medium tracking-tightest">
+                {exp.role}
+                <span className="text-dim2">, </span>
+                {exp.company}
+              </h3>
+
+              <ul className="mt-4 space-y-2.5 border-l border-rule pl-4">
+                {exp.responsibilities.map((task) => (
+                  <li
+                    key={task}
+                    className="max-w-measure text-sm leading-relaxed text-dim"
+                  >
+                    {task}
+                  </li>
                 ))}
-            </div>
-        </section>
-    );
-};
+              </ul>
 
-export default Experience;
+              <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-1.5">
+                {exp.skills.map((skill) => (
+                  <li key={skill} className="font-mono text-xs text-dim2">
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </Panel>
+  );
+}

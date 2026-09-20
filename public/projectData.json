@@ -1,5 +1,94 @@
 [
   {
+    "slug": "ApplyCove",
+    "title": "ApplyCove",
+    "description": "A job application automation platform that applies on a candidate's behalf while they watch live and can take over the browser mid-run. Built solo end to end (product, backend, frontend, browser extension, scrapers, infra and growth) and taken to 138,222 applications submitted for 2,326 users in under three months.",
+    "metricsAsOf": "September 2026",
+    "metrics": [
+      {
+        "label": "applications submitted",
+        "value": "138,222"
+      },
+      {
+        "label": "questions auto-answered",
+        "value": "494,574"
+      },
+      {
+        "label": "jobs screened out",
+        "value": "728,653"
+      },
+      {
+        "label": "hours of manual work saved",
+        "value": "11,683"
+      },
+      {
+        "label": "registered users",
+        "value": "2,326"
+      },
+      {
+        "label": "free to paid",
+        "value": "11.6%"
+      }
+    ],
+    "liveUrl": "https://applycove.com",
+    "images": [],
+    "technologies": [
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Prisma",
+      "pgvector",
+      "Redis",
+      "Puppeteer",
+      "React 19",
+      "Astro",
+      "Manifest V3",
+      "AWS ECS Fargate",
+      "AWS IoT Core",
+      "Cloudflare R2",
+      "Docker",
+      "LLM cascade"
+    ],
+    "content": [
+      {
+        "title": "Impact",
+        "descriptions": [
+          "138,222 job applications submitted and 494,574 screening questions auto-answered, with another 728,653 jobs screened out before applying.",
+          "About 11,683 hours of manual applying saved, at a sustained 19.46 applications per user-hour, peaking between 09:00 and 11:00 IST.",
+          "2,326 registered users in under three months at an 11.6% free-to-paid conversion rate, on zero paid acquisition spend, all organic search and word of mouth.",
+          "~90,000 lines across seven apps, five shared packages and a CLI in a pnpm monorepo, shipped solo in six months."
+        ]
+      },
+      {
+        "title": "Architecture",
+        "descriptions": [
+          "Two automation engines: a Puppeteer worker on ECS Fargate for authenticated job boards, and a Manifest V3 extension that runs the apply loop inside the candidate's own browser for five ATS platforms, which removes the anti-detection problem entirely.",
+          "Live session streaming: the worker's X display captured with ffmpeg x11grab into one-second HLS segments on Cloudflare R2, progress events over MQTT on AWS IoT Core, and browser takeover through KasmVNC tunnelled over cloudflared.",
+          "Express API with 107 handlers behind nginx, Postgres with pgvector and tsvector full-text search, self-hosted Redis, and blue-green deploys driven by GitHub Actions runners the host registers itself."
+        ]
+      },
+      {
+        "title": "Engineering highlights",
+        "descriptions": [
+          "Three-tier answer resolution: deterministic regex matcher, pgvector semantic cache at 0.15 cosine distance, then a four-provider LLM cascade. Most of the 494,574 questions answered never reached a model.",
+          "Concurrency pushed into Postgres instead of application locks: partial unique indexes, SELECT ... FOR UPDATE SKIP LOCKED job claiming, compare-and-swap idempotency on every payment settle path, and a PL/pgSQL trigger settling runtime quota against a FIFO credit wallet.",
+          "Recommendation engine written from scratch: Postgres full-text retrieval, two in-memory IDF passes, a declarative capped scoring table, company diversity with overflow backfill, all in a Piscina worker pool.",
+          "Six ATS scrapers over 16,597 vendored tenant company lists, including a facet-subdivision strategy that works around Workday's hard 2,000-row query cap, feeding hash-gated upserts that write only changed rows.",
+          "Every Redis dependency fails open in a named way: rate limiting falls back to a per-worker memory store behind a circuit breaker, caches fall back to the database. Redis going down degrades the product, it does not stop it."
+        ]
+      },
+      {
+        "title": "Product and growth",
+        "descriptions": [
+          "Distribution built as an engineering surface because there was no ad budget: programmatic city and role pages, hub-and-spoke internal linking, and free ATS-checker tools built to make exactly one model call each so they stay cheap to give away.",
+          "AI search handled deliberately: RFC 9110 content negotiation serving Markdown twins to AI crawlers, a generated llms.txt, 30 schema.org entity types, and a 40-assertion conformance suite that gates deploys.",
+          "Honest instrumentation: a session-outcome classifier reading freeform reason text, because raw status conflated user-stop, quota exhaustion and real crashes and reported 39% aborted when the hard-failure rate is under 5%.",
+          "Owned product decisions, visual design, payments across three gateways with region-based routing, transactional email, SEO and lifecycle marketing."
+        ]
+      }
+    ]
+  },
+  {
     "slug": "Cosmic-RMS",
     "title": "Cosmic RMS",
     "description": "A comprehensive trading platform enabling management of Net Positions, Market Watch, Order Logs, and trading strategies.",
@@ -103,8 +192,7 @@
         "url": "/project/hrank/utils_frame (8).png",
         "alt": "Utility frame or supporting interface element."
       }
-    ]
-    ,
+    ],
     "technologies": [
       "Docker",
       "Node.js",
@@ -135,16 +223,17 @@
       }
     ]
   },
-
   {
     "slug": "Trading-Project",
     "title": "Trading Project",
     "description": "A high-performance trading system built in C++ utilizing shared memory, inter-process communication, dynamic linking, and real-time data processing.",
     "githubUrl": "https://github.com/vc8bp/Trading-Project/tree/sharedmem",
-    "images": [{
-      "url": "/project/hft/hftImg.jpeg",
-      "alt": "HFT Image"
-    }],
+    "images": [
+      {
+        "url": "/project/hft/hftImg.jpeg",
+        "alt": "HFT Image"
+      }
+    ],
     "technologies": [
       "C++",
       "Shared Memory",
@@ -157,7 +246,6 @@
       "Low-latency Data Handling",
       "Modular Architecture"
     ],
-
     "content": [
       {
         "title": "Overview",
@@ -191,19 +279,19 @@
     "githubUrl": "https://github.com/vc8bp/chess",
     "liveUrl": "https://cchess.netlify.app/",
     "videoUrl": "",
-    "images": [ 
+    "images": [
       {
         "url": "/project/chess/moves.png",
         "alt": "chess game Demo"
-      }, 
+      },
       {
         "url": "/project/chess/start.png",
         "alt": "chess game Demo"
-      }, 
+      },
       {
         "url": "/project/chess/threat.png",
         "alt": "chess game Demo"
-      }, 
+      },
       {
         "url": "/project/chess/board.png",
         "alt": "chess game Demo"
@@ -236,5 +324,4 @@
       }
     ]
   }
-  
 ]

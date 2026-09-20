@@ -1,47 +1,63 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "./(components)/NavBar";
-import GradientBlob from "./GradiantBlob";
 import Footer from "./(components)/Footer";
-import SplashScreen from "@/app/(components)/SplashScreen";
+import CursorField from "./(components)/CursorField";
+import Reveal from "./(components)/Reveal";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
   subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
 });
+
+const SITE = "https://www.vivekchaturvedi.site";
+const DESCRIPTION =
+  "Software engineer who builds whole systems end to end: product, backend, frontend and infrastructure. Shipped a job-application platform solo, past 135,000 applications.";
 
 export const metadata: Metadata = {
-  title: "Vivek Chaturvedi | Software Developer",
-  description: "Software Developer with expertise in building high-performance systems, trading platforms, web applications, and innovative software solutions.",
-  keywords: ["Software Developer", "C++", "React", "Node.js", "TypeScript", "Trading Systems", "System Architecture"],
+  metadataBase: new URL(SITE),
+  title: "Vivek Chaturvedi | Software Engineer",
+  description: DESCRIPTION,
+  keywords: [
+    "Software Engineer",
+    "Full Stack Engineer",
+    "TypeScript",
+    "React",
+    "Node.js",
+    "Python",
+    "C++",
+    "PostgreSQL",
+    "AWS",
+    "Docker",
+    "System Design",
+  ],
   authors: [{ name: "Vivek Chaturvedi" }],
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://your-portfolio-url.com",
-    siteName: "Vivek Chaturvedi Portfolio",
-    title: "Vivek Chaturvedi | Software Developer",
-    description: "Software Developer with expertise in building high-performance systems, trading platforms, web applications, and innovative software solutions.",
+    url: SITE,
+    siteName: "Vivek Chaturvedi",
+    title: "Vivek Chaturvedi | Software Engineer",
+    description: DESCRIPTION,
     images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Vivek Chaturvedi Portfolio"
-      }
-    ]
+      { url: "/og.png", width: 1200, height: 630, alt: "Vivek Chaturvedi, Software Engineer" },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vivek Chaturvedi | Software Developer",
-    description: "Software Developer with expertise in building high-performance systems, trading platforms, web applications, and innovative software solutions.",
-    images: ["/og-image.jpg"]
+    title: "Vivek Chaturvedi | Software Engineer",
+    description: DESCRIPTION,
+    images: ["/og.png"],
   },
   robots: {
     index: true,
@@ -49,26 +65,29 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
+  },
+  verification: {
+    google: "3vb7PAIymy2lb7q-rHeIelFrbOTQRl4TX_VvfPAxerc",
   },
 };
 
-
-
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-
-  
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${archivo.variable} ${plexMono.variable}`}>
       <head>
-        <meta name="google-site-verification" content="3vb7PAIymy2lb7q-rHeIelFrbOTQRl4TX_VvfPAxerc" />
+        {/* Runs before first paint: marks that JS is alive so the reveal
+            styles may hide content. No JS, no hiding. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add("js")`,
+          }}
+        />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-B55519Z9TP"></script>
         <script
           dangerouslySetInnerHTML={{
@@ -80,16 +99,19 @@ export default function RootLayout({
             `,
           }}
         ></script>
-
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <NavBar/>
-        <GradientBlob/>
-        <SplashScreen/>
+      <body className="antialiased font-sans">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-signal focus:px-4 focus:py-2 focus:font-mono focus:text-sm focus:text-ink"
+        >
+          Skip to content
+        </a>
+        <CursorField />
+        <Reveal />
+        <NavBar />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

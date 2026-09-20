@@ -1,5 +1,22 @@
 [
     {
+        "title": "Digital IP Law - Firm Landing Page",
+        "description": "A marketing site for Digital IP Law, a Delhi-based intellectual property firm handling trademark, copyright, patent and design registrations across India and 130+ WIPO member countries. Built in Next.js with a token-driven Tailwind design system, a service page per filing type, a blog, and LegalService schema markup carrying address, geo and opening-hours data for local search.",
+        "tags": [
+            "Next.js",
+            "React",
+            "Tailwind CSS",
+            "SEO"
+        ],
+        "link": {
+            "live": "https://www.digitaliplaw.in/",
+            "github": ""
+        },
+        "year": "2026",
+        "featured": true,
+        "madeAt": "Digital IP Law"
+    },
+    {
         "title": "Production-ready eCommerce",
         "description": "A full-stack eCommerce platform with a Node.js (Express) + MongoDB backend, a React frontend for shoppers, and a React admin dashboard for store management. It supports user authentication, product browsing, shopping cart & checkout, and includes an admin interface for inventory and order management.",
         "image": "/placeholder-image.png",
@@ -80,7 +97,7 @@
             "live": "https://www.rjenterpriseinfo.com/",
             "github": ""
         },
-        "year": "2023",
+        "year": "2024",
         "featured": true,
         "madeAt": "RJ Enterprise"
     },

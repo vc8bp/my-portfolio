@@ -1,32 +1,35 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
+      // NOTE: these map to hex-valued CSS variables so canvas code can read them
+      // with getPropertyValue(). The trade-off is that Tailwind's opacity
+      // modifier does NOT work on them — `bg-ink/85` compiles to
+      // `rgb(var(--ink) / .85)`, which is invalid CSS and is silently dropped,
+      // leaving the element with no background at all. For a translucent
+      // surface, add a token in globals.css and use `bg-[var(--surface-x)]`.
       colors: {
-        background: "var(--color-background)",
-        foreground: "var(--color-foreground)",
-        primary: "var(--color-primary)",
-        secondary: "var(--color-secondary)",
-        navy: "var(--navy)",
-        muted: "var(--color-muted)",
-        buttonBorder: "var(--color-button-border)",
+        ink: "var(--ink)",
+        panel: "var(--panel)",
+        panel2: "var(--panel-2)",
+        rule: "var(--rule)",
+        text: "var(--text)",
+        dim: "var(--dim)",
+        dim2: "var(--dim-2)",
+        signal: "var(--signal)",
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"], // Modern, clean font
-        mono: ['SF Mono','Fira Code','Fira Mono','Roboto Mono',"monospace"]
+        sans: ["var(--font-archivo)", "system-ui", "sans-serif"],
+        mono: ["var(--font-plex-mono)", "ui-monospace", "monospace"],
       },
-      spacing: {
-        '18': '4.5rem', // Custom spacing value
+      letterSpacing: {
+        tightest: "-0.04em",
       },
-      boxShadow: {
-        'glow': '0 0 10px rgba(100, 255, 218, 0.5)', // Glow effect for buttons
-      }
+      maxWidth: {
+        measure: "var(--measure)",
+      },
     },
   },
   plugins: [],
