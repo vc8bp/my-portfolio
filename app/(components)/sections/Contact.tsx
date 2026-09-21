@@ -37,13 +37,6 @@ export default function Contact() {
             >
               LinkedIn
             </a>
-            <a
-              href="/vivek chaturvedi resume.pdf"
-              target="_blank"
-              className="font-mono text-xs text-dim transition-colors hover:text-signal"
-            >
-              Résumé
-            </a>
           </div>
         </div>
       </div>

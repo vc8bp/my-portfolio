@@ -11,8 +11,6 @@ const navItems = [
   { title: "Contact", href: "#contact", id: "contact" },
 ];
 
-const RESUME = "/vivek chaturvedi resume.pdf";
-
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
@@ -90,13 +88,6 @@ export default function NavBar() {
               {item.title}
             </Link>
           ))}
-          <Link
-            href={RESUME}
-            target="_blank"
-            className="ml-3 border border-rule px-3.5 py-2.5 font-mono text-xs text-text transition-colors hover:border-signal hover:text-signal"
-          >
-            Résumé
-          </Link>
         </div>
 
         <button
@@ -156,14 +147,6 @@ export default function NavBar() {
               {item.title}
             </Link>
           ))}
-          <Link
-            href={RESUME}
-            target="_blank"
-            className="mt-8 border border-rule px-4 py-2 font-mono text-xs transition-colors hover:border-signal hover:text-signal"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Résumé
-          </Link>
         </div>
       </div>
     </>
